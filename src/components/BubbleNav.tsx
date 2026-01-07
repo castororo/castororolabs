@@ -30,11 +30,6 @@ const CommandBar = ({ scrollRef }: { scrollRef: React.RefObject<HTMLDivElement> 
         const element = document.getElementById(id);
 
         if (element) {
-          // Since the element is inside the container, we can check relative offset
-          // But `element.offsetTop` is relative to closest positioned ancestor. 
-          // If sections are direct children of the scroll container (which they are in Index.tsx), 
-          // then element.offsetTop is correct relative to the container TOP (0).
-
           const top = element.offsetTop;
           const height = element.offsetHeight;
 
@@ -62,8 +57,8 @@ const CommandBar = ({ scrollRef }: { scrollRef: React.RefObject<HTMLDivElement> 
   };
 
   return (
-    <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 w-[95vw] md:w-auto overflow-x-auto no-scrollbar">
-      <nav className="relative flex items-center gap-1 p-2 rounded-xl bg-zinc-950/80 backdrop-blur-md border border-white/10 shadow-2xl shadow-black/50 min-w-max mx-auto">
+    <div className="fixed bottom-4 md:bottom-8 left-1/2 -translate-x-1/2 z-50 w-[92vw] md:w-auto">
+      <nav className="relative flex items-center justify-between md:justify-center gap-0 md:gap-1 p-1 md:p-2 rounded-xl bg-zinc-950/90 backdrop-blur-md border border-white/10 shadow-2xl shadow-black/50 w-full md:w-auto md:min-w-max mx-auto">
         {/* Tech Deco Lines */}
         <div className="absolute -top-1 left-4 right-4 h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent" />
         <div className="absolute -bottom-1 left-4 right-4 h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent" />
@@ -76,7 +71,9 @@ const CommandBar = ({ scrollRef }: { scrollRef: React.RefObject<HTMLDivElement> 
               scrollTo(link.href);
             }}
             className={`
-                            relative px-3 py-2 md:px-4 text-xs md:text-sm font-mono tracking-widest transition-colors duration-300
+                            relative flex-1 md:flex-none px-0 py-3 md:px-4 md:py-2 
+                            text-[10px] md:text-sm font-mono tracking-tighter md:tracking-widest 
+                            transition-colors duration-300
                             ${active === link.name ? "text-primary text-shadow-glow" : "text-zinc-500 hover:text-zinc-200"}
                         `}
           >
@@ -91,8 +88,8 @@ const CommandBar = ({ scrollRef }: { scrollRef: React.RefObject<HTMLDivElement> 
               </motion.div>
             )}
 
-            <span className="relative z-10 flex items-center gap-1">
-              {/* Brackets for active state */}
+            <span className="relative z-10 flex items-center justify-center gap-1">
+              {/* Brackets for active state - Hidden on mobile to save space */}
               {active === link.name && <span className="opacity-50 text-white hidden md:inline">[</span>}
               {link.name}
               {active === link.name && <span className="opacity-50 text-white hidden md:inline">]</span>}
