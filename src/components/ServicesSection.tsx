@@ -58,7 +58,11 @@ const ServicesSection = () => {
 
   return (
     <section id="services" ref={ref} className="h-screen flex flex-col snap-start overflow-hidden bg-background">
-      <div className="container h-[10vh] md:h-[15vh] pt-8 md:pt-12 shrink-0">
+      {/* 
+          Mobile Header: Flexible height (py-8) so it doesn't get overlapped.
+          Desktop Header: Fixed height (15vh) for consistent layout.
+      */}
+      <div className="container py-8 md:py-12 md:h-[15vh] shrink-0 flex flex-col justify-center">
         {/* Section label */}
         <div className="flex items-center gap-4 mb-4">
           <span className="text-xs uppercase tracking-widest text-muted-foreground">
@@ -92,8 +96,8 @@ const ServicesSection = () => {
       </div>
 
       {/* MOBILE: Vertical Scroll List (Visible on Mobile) */}
-      <div className="md:hidden flex-1 w-full overflow-y-auto px-4 pb-20 scrollbar-hide">
-        <div className="flex flex-col gap-4 pb-8">
+      <div className="md:hidden flex-1 w-full overflow-y-auto px-4 pb-32 scrollbar-hide">
+        <div className="flex flex-col gap-6">
           {services.map((service) => (
             <ServiceCard key={service.number} service={service} />
           ))}
