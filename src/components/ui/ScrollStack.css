@@ -1,0 +1,41 @@
+/* ScrollStack.css */
+
+.scroll-stack-scroller {
+    /* Must be a scroll container if not using window scroll */
+    height: 100%;
+    width: 100%;
+    overflow-y: auto;
+    position: relative;
+    /* Hide scrollbar for cleaner look if desired */
+    scrollbar-width: none;
+}
+
+.scroll-stack-scroller::-webkit-scrollbar {
+    display: none;
+}
+
+.scroll-stack-inner {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10vh;
+    /* Start padding */
+    padding-bottom: 20vh;
+}
+
+.scroll-stack-card {
+    /* Cards should be centered or styled as blocks */
+    width: 100%;
+    max-width: 800px;
+    /* or whatever width fits the design */
+    background: transparent;
+    /* Optimization properties are set via JS (will-change) */
+    box-sizing: border-box;
+}
+
+.scroll-stack-end {
+    width: 100%;
+    /* Height is set inline in JSX or here */
+}

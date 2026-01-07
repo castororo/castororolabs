@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* CASTORORO Design System - Dark Cosmic Theme with Pink/Magenta Accents */
+
+@layer base {
+  :root {
+    /* Core backgrounds - Deepest Cosmic Black */
+    --background: 240 10% 4%;
+    /* zinc-950 approx */
+    --foreground: 0 0% 98%;
+
+    /* Cards - Slightly lighter black */
+    --card: 240 10% 6%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 10% 4%;
+    --popover-foreground: 0 0% 98%;
+
+    /* Primary - Hot Pink/Magenta from palette */
+    --primary: 330 100% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary - Electric Blue accent */
+    --secondary: 210 100% 55%;
+    --secondary-foreground: 0 0% 100%;
+
+    /* Muted - Dark gray tones */
+    --muted: 240 5% 15%;
+    --muted-foreground: 240 5% 60%;
+
+    /* Accent - Cyan/Teal hint */
+    --accent: 180 100% 45%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 240 5% 20%;
+    --input: 240 5% 15%;
+    --ring: 330 100% 60%;
+
+    --radius: 0.75rem;
+
+    /* Custom brand colors */
+    --glow-pink: 330 100% 60%;
+    --glow-blue: 210 100% 55%;
+    --grid-color: 240 5% 12%;
+
+    /* Sidebar - dark theme */
+    --sidebar-background: 240 10% 4%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 330 100% 60%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 5% 15%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 240 5% 20%;
+    --sidebar-ring: 330 100% 60%;
+  }
+
+  .dark {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 4%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 4%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 330 100% 60%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 100% 55%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 240 5% 15%;
+    --muted-foreground: 240 5% 60%;
+    --accent: 180 100% 45%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 240 5% 20%;
+    --input: 240 5% 15%;
+    --ring: 330 100% 60%;
+    --sidebar-background: 240 10% 4%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 330 100% 60%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 5% 15%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 240 5% 20%;
+    --sidebar-ring: 330 100% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+  }
+}
+
+@layer components {
+
+  /* Grid background pattern */
+  .grid-pattern {
+    background-image:
+      linear-gradient(to right, hsl(var(--grid-color)) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(var(--grid-color)) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  /* Glow effects */
+  .glow-pink {
+    box-shadow: 0 0 40px hsl(var(--glow-pink) / 0.4),
+      0 0 80px hsl(var(--glow-pink) / 0.2);
+  }
+
+  .glow-blue {
+    box-shadow: 0 0 40px hsl(var(--glow-blue) / 0.4),
+      0 0 80px hsl(var(--glow-blue) / 0.2);
+  }
+
+  .text-glow-pink {
+    text-shadow: 0 0 20px hsl(var(--glow-pink) / 0.6),
+      0 0 40px hsl(var(--glow-pink) / 0.3);
+  }
+
+  .text-glow-blue {
+    text-shadow: 0 0 20px hsl(var(--glow-blue) / 0.6),
+      0 0 40px hsl(var(--glow-blue) / 0.3);
+  }
+
+  /* Bubble navigation */
+  .bubble-nav {
+    backdrop-filter: blur(20px);
+    background: hsl(var(--card) / 0.8);
+    border: 1px solid hsl(var(--border) / 0.5);
+  }
+
+  .bubble-item {
+    @apply px-4 py-2 rounded-full transition-all duration-300 cursor-pointer;
+  }
+
+  .bubble-item:hover {
+    background: hsl(var(--primary) / 0.15);
+  }
+
+  .bubble-item.active {
+    background: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Service cards */
+  .service-card {
+    @apply bg-card border border-border rounded-2xl p-8;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* Floating cube */
+  .floating-cube {
+    background: linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--primary)));
+    transform-style: preserve-3d;
+  }
+
+  /* Horizontal scroll container */
+  .horizontal-scroll-container {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .horizontal-scroll-container::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scroll-snap-item {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+}
+
+@layer utilities {
+
+  .bg-cosmic-grid {
+    background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 30px 30px;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}

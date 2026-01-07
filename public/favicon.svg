@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Background: Deep Void with subtle grid hint -->
+  <rect width="512" height="512" rx="120" fill="#09090b" />
+  
+  <!-- Cosmic Star Accent -->
+  <path d="M420 80L440 130L490 150L440 170L420 220L400 170L350 150L400 130Z" fill="#be185d" />
+
+  <!-- Main "C" Logo -->
+  <path d="M360 128H320C302.3 128 288 142.3 288 160V192H384V320H288V352C288 369.7 302.3 384 320 384H360C377.7 384 392 369.7 392 352V340H448V352C448 400.6 408.6 440 360 440H320C214 440 128 354 128 248C128 142 214 56 320 56H360C408.6 56 448 95.4 448 144V160H392V144C392 135.2 384.8 128 376 128H360Z" 
+        fill="white" 
+        transform="translate(-20, 20)" />
+        
+  <!-- Tech Dot Grid Accent -->
+  <rect x="100" y="400" width="20" height="20" rx="10" fill="#333" />
+  <rect x="140" y="400" width="20" height="20" rx="10" fill="#333" />
+  <rect x="180" y="400" width="20" height="20" rx="10" fill="#333" />
+</svg>
