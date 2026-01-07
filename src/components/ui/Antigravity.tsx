@@ -2,6 +2,7 @@
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { useMemo, useRef } from 'react';
 import * as THREE from 'three';
+import { useInView } from "framer-motion";
 
 interface AntigravityProps {
     count?: number;
@@ -21,6 +22,10 @@ interface AntigravityProps {
     fieldStrength?: number;
 }
 
+interface AntigravityInnerProps extends AntigravityProps {
+    isInView: boolean;
+}
+
 const AntigravityInner = ({
     count = 300,
     magnetRadius = 10,
@@ -36,8 +41,9 @@ const AntigravityInner = ({
     depthFactor = 1,
     pulseSpeed = 3,
     particleShape = 'capsule',
-    fieldStrength = 10
-}: AntigravityProps) => {
+    fieldStrength = 10,
+    isInView
+}: AntigravityInnerProps) => {
     const meshRef = useRef<THREE.InstancedMesh>(null);
     const { viewport } = useThree();
     const dummy = useMemo(() => new THREE.Object3D(), []);
@@ -88,6 +94,8 @@ const AntigravityInner = ({
     }, [count, viewport.width, viewport.height]);
 
     useFrame(state => {
+        if (!isInView) return;
+
         const mesh = meshRef.current;
         if (!mesh) return;
 
@@ -188,14 +196,17 @@ const AntigravityInner = ({
 };
 
 const Antigravity = (props: AntigravityProps) => {
+    const containerRef = useRef(null);
+    const isInView = useInView(containerRef, { amount: 0.1 });
+
     return (
-        <div className="w-full h-full">
+        <div ref={containerRef} className="w-full h-full">
             <Canvas
                 camera={{ position: [0, 0, 50], fov: 35 }}
                 dpr={[1, 1.5]} // Optimize pixel ratio
                 gl={{ antialias: false, powerPreference: "high-performance" }} // Optimizations
             >
-                <AntigravityInner {...props} />
+                <AntigravityInner {...props} isInView={isInView} />
             </Canvas>
         </div>
     );

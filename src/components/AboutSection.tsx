@@ -1,6 +1,7 @@
 import { motion, useInView, Easing } from "framer-motion";
 import { useRef } from "react";
 import { CosmicStar } from "./ui/CosmicStar";
+import { ArrowUpRight } from "lucide-react";
 
 const AboutSection = () => {
   const ref = useRef(null);
@@ -82,6 +83,45 @@ const AboutSection = () => {
               focused teams that truly understand the vision. Our boutique approach
               means you work directly with us—no handoffs, no miscommunication.
             </p>
+
+            {/* Meet the Team */}
+            <div className="pt-8 border-t border-white/5 mt-8">
+              <h3 className="text-sm font-mono uppercase tracking-widest text-zinc-500 mb-6">Meet the Makers</h3>
+              <div className="flex flex-col sm:flex-row gap-6">
+                {[
+                  {
+                    name: "Jason Joshua W",
+                    href: "/developer/jason-joshua", // Intentionally broken link
+                    initials: "JJ"
+                  },
+                  {
+                    name: "Jayabhargavi B",
+                    href: "https://portfolio-cheery-blossom.vercel.app/",
+                    initials: "JB"
+                  }
+                ].map((dev) => (
+                  <a
+                    key={dev.name}
+                    href={dev.href}
+                    target={dev.href.startsWith("http") ? "_blank" : undefined}
+                    rel={dev.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                    className="group flex items-center gap-4 bg-zinc-900/30 border border-white/5 rounded-full pl-2 pr-6 py-2 hover:bg-zinc-900/60 hover:border-primary/30 transition-all duration-300"
+                  >
+                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-zinc-800 to-zinc-950 border border-white/10 flex items-center justify-center group-hover:scale-105 transition-transform">
+                      <span className="font-mono text-xs font-bold text-zinc-400 group-hover:text-primary transition-colors">
+                        {dev.initials}
+                      </span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span className="text-sm font-medium text-zinc-300 group-hover:text-white transition-colors">
+                        {dev.name}
+                      </span>
+                      <ArrowUpRight className="w-3 h-3 text-zinc-600 group-hover:text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+                    </div>
+                  </a>
+                ))}
+              </div>
+            </div>
           </motion.div>
         </div>
       </div>

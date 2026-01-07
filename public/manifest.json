@@ -1,0 +1,16 @@
+{
+    "name": "CASTORORO | Boutique Web Development Studio",
+    "short_name": "CASTORORO",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#09090b",
+    "theme_color": "#09090b",
+    "description": "Boutique web development studio crafting high-performance React apps and digital experiences.",
+    "icons": [
+        {
+            "src": "/favicon.svg",
+            "type": "image/svg+xml",
+            "sizes": "192x192 512x512"
+        }
+    ]
+}
