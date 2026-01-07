@@ -21,7 +21,7 @@ const Index = () => {
   return (
     <div ref={mainScrollRef} className="h-screen overflow-y-scroll snap-y snap-mandatory scroll-smooth bg-background text-foreground overflow-x-hidden">
       <CosmicCursor /> {/* Render Custom Cursor */}
-      <CommandBar />
+      <CommandBar scrollRef={mainScrollRef} />
       {/* Each section needs snap-start class */}
       <div className="snap-start w-full">
         <HeroSection />

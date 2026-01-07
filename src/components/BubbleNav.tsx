@@ -10,34 +10,52 @@ const links = [
   { name: "CONTACT", href: "#contact" },
 ];
 
-const CommandBar = () => {
+const CommandBar = ({ scrollRef }: { scrollRef: React.RefObject<HTMLDivElement> }) => {
   const [active, setActive] = useState("HOME");
 
   // Handle scroll spy
   useEffect(() => {
-    const handleScroll = () => {
-      const sections = links.map(link => document.querySelector(link.href));
-      const scrollPos = window.scrollY + 300; // Offset
+    const container = scrollRef.current;
+    if (!container) return; // If container not mounted yet
 
-      sections.forEach((section) => {
-        if (section) {
-          const top = (section as HTMLElement).offsetTop;
-          const height = (section as HTMLElement).offsetHeight;
-          if (scrollPos >= top && scrollPos < top + height) {
-            const id = section.getAttribute('id');
-            const linkName = links.find(l => l.href === `#${id}`)?.name;
-            if (linkName) setActive(linkName);
+    const handleScroll = () => {
+      // Using container's scrolling
+      const visibleHeight = container.clientHeight;
+      // The "middle" of the viewport for detection purposes
+      const detectionPoint = container.scrollTop + (visibleHeight / 3);
+
+      // We need to calculate based on children of the scroll container
+      links.forEach((link) => {
+        const id = link.href.substring(1); // remove #
+        const element = document.getElementById(id);
+
+        if (element) {
+          // Since the element is inside the container, we can check relative offset
+          // But `element.offsetTop` is relative to closest positioned ancestor. 
+          // If sections are direct children of the scroll container (which they are in Index.tsx), 
+          // then element.offsetTop is correct relative to the container TOP (0).
+
+          const top = element.offsetTop;
+          const height = element.offsetHeight;
+
+          // Check if detection point is inside the section
+          if (detectionPoint >= top && detectionPoint < top + height) {
+            setActive(link.name);
           }
         }
       });
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    container.addEventListener("scroll", handleScroll);
+    // Initial detection
+    handleScroll();
+
+    return () => container.removeEventListener("scroll", handleScroll);
+  }, [scrollRef]);
 
   const scrollTo = (href: string) => {
-    const element = document.querySelector(href);
+    const id = href.substring(1);
+    const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }

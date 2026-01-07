@@ -53,6 +53,7 @@ const HowWeWorkSection = ({ scrollContainerRef }: HowWeWorkSectionProps) => {
 
   return (
     <section
+      id="process"
       ref={containerRef}
       className="relative h-[400vh] snap-start bg-black"
     >
