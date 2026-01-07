@@ -7,7 +7,7 @@ const Footer = () => {
 
   const footerLinks = {
     pages: ["Home", "About", "Services", "Projects", "Contact"],
-    social: ["Twitter", "LinkedIn", "Dribbble", "GitHub"],
+    social: ["LinkedIn", "Dribbble", "GitHub"],
   };
 
   return (
