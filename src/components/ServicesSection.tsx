@@ -6,23 +6,23 @@ import { CosmicStar } from "./ui/CosmicStar";
 const services = [
   {
     number: "01",
-    title: "Websites for startups",
-    description: "Launch ready websites that make a statement and drive growth for your vision.",
+    title: "UI/UX Design",
+    description: "Crafting intuitive, pixel-perfect interfaces that captivate users and elevate your brand identity.",
   },
   {
     number: "02",
-    title: "High-performance React apps",
-    description: "Lightning-fast React applications built for scale and user satisfaction.",
+    title: "Modern Web Development",
+    description: "Building robust, scalable websites and web apps using the latest tech (React, Next.js, Tailwind).",
   },
   {
     number: "03",
-    title: "Clean UI & smooth animations",
-    description: "Beautiful interfaces with delightful micro-interactions that users love.",
+    title: "SEO & Performance",
+    description: "Optimizing for visibility and speed. We ensure your site ranks high and loads instantly.",
   },
   {
     number: "04",
-    title: "Scalable frontend systems",
-    description: "Component libraries and design systems that grow with your product.",
+    title: "Hosting & Maintenance",
+    description: "Worry-free deployment, security updates, and 24/7 reliability for your digital assets.",
   },
 ];
 
