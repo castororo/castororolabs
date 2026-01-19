@@ -3,6 +3,7 @@ import HeroSection from "@/components/HeroSection";
 import CosmicCursor from "@/components/ui/CosmicCursor";
 import { useRef, lazy, Suspense } from "react";
 import CosmicLoader from "@/components/ui/CosmicLoader";
+import ScrollProgress from "@/components/ui/ScrollProgress";
 
 // Lazy load below-the-fold content for better initial performance
 const TaglineSection = lazy(() => import("@/components/TaglineSection"));
@@ -16,9 +17,10 @@ const Index = () => {
   const mainScrollRef = useRef<HTMLDivElement>(null);
 
   return (
-    <div ref={mainScrollRef} className="h-screen overflow-y-scroll snap-y snap-mandatory scroll-smooth bg-background text-foreground overflow-x-hidden">
+    <div ref={mainScrollRef} className="h-screen overflow-y-scroll snap-y snap-mandatory scroll-smooth bg-background text-foreground overflow-x-hidden no-scrollbar">
       <CosmicCursor /> {/* Render Custom Cursor */}
       <CommandBar scrollRef={mainScrollRef} />
+      <ScrollProgress containerRef={mainScrollRef} />
 
       {/* Hero loaded instantly */}
       <div className="snap-start w-full">

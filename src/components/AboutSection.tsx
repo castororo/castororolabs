@@ -91,7 +91,7 @@ const AboutSection = () => {
                 {[
                   {
                     name: "Jason Joshua W",
-                    href: "/developer/jason-joshua", // Intentionally broken link
+                    href: "https://jasonjoshua.netlify.app/",
                     initials: "JJ"
                   },
                   {

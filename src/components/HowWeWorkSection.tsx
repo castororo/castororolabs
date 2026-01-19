@@ -74,7 +74,7 @@ const HowWeWorkSection = ({ scrollContainerRef }: HowWeWorkSectionProps) => {
             className="flex items-center gap-4 mb-8 pl-4 md:pl-0"
           >
             <span className="text-xs uppercase tracking-widest text-primary font-mono">
-              // THE PROCESS
+              {/* THE PROCESS */}
             </span>
             <div className="w-12 h-[1px] bg-primary/50" />
           </motion.div>

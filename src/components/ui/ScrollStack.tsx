@@ -263,7 +263,7 @@ const ScrollStack = ({
             lenisRef.current = lenis;
             return lenis;
         }
-    }, [handleScroll, useWindowScroll]);
+    }, [handleScroll, useWindowScroll, enableLenis]);
 
     useLayoutEffect(() => {
         const scroller = scrollerRef.current;

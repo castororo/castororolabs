@@ -127,7 +127,8 @@ const AntigravityInner = ({
         const globalRotation = state.clock.getElapsedTime() * rotationSpeed;
 
         particles.forEach((particle, i) => {
-            let { t, speed, cx, cy, cz, mx, my, mz, randomRadiusOffset } = particle;
+            const { speed, cx, cy, cz, mx, my, mz, randomRadiusOffset } = particle;
+            let { t } = particle;
 
             particle.t += speed / 2;
             t = particle.t;
@@ -140,7 +141,7 @@ const AntigravityInner = ({
             const dy = my - projectedTargetY;
             const dist = Math.sqrt(dx * dx + dy * dy);
 
-            let targetPos = { x: mx, y: my, z: mz * depthFactor };
+            const targetPos = { x: mx, y: my, z: mz * depthFactor };
 
             if (dist < magnetRadius) {
                 const angle = Math.atan2(dy, dx) + globalRotation;

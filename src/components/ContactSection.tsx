@@ -54,11 +54,11 @@ const ContactSection = () => {
                     className="mb-16 md:mb-24"
                 >
                     <span className="text-sm md:text-base font-mono uppercase tracking-widest text-muted-foreground mb-8 block">
-                        // INITIALIZE COMMUNICATION
+                        {/* INITIALIZE COMMUNICATION */}
                     </span>
 
                     <h2 className="text-5xl md:text-8xl lg:text-[120px] font-bold leading-[0.9] tracking-tighter">
-                        LET'S WORK <br />
+                        LET&apos;S WORK <br />
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-pink-600 animate-text-shimmer bg-[length:200%_auto]">
                             TOGETHER
                         </span>
@@ -86,7 +86,7 @@ const ContactSection = () => {
                                 </div>
                                 <div>
                                     <h3 className="text-3xl md:text-5xl font-bold text-white mb-2 group-hover:text-primary transition-colors">Start a Project</h3>
-                                    <p className="text-zinc-400 text-lg">Have an idea? Let's build it together.</p>
+                                    <p className="text-zinc-400 text-lg">Have an idea? Let&apos;s build it together.</p>
                                 </div>
                             </motion.div>
                         </DialogTrigger>
@@ -154,7 +154,7 @@ const ContactSection = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5, delay: 0.4 }}
-                        className="col-span-1 md:col-span-4 bg-gradient-to-br from-purple-500/10 to-pink-500/10 backdrop-blur-sm border border-white/10 rounded-3xl p-8 flex flex-col justify-between h-48 md:h-auto group hover:border-pink-500/50 transition-colors"
+                        className="col-span-1 md:col-span-4 bg-gradient-to-br from-purple-500/10 to-pink-500/10 backdrop-blur-sm border border-white/10 rounded-3xl p-8 flex flex-col justify-between h-auto gap-6 group hover:border-pink-500/50 transition-colors"
                     >
                         <div className="flex gap-2">
                             <a href="https://www.instagram.com/casto_roro/#" target="_blank" rel="noopener noreferrer" className="p-2 bg-white/5 rounded-full hover:bg-white/10 transition-colors">
@@ -162,10 +162,12 @@ const ContactSection = () => {
                             </a>
                         </div>
                         <div>
-                            <span className="block text-xs uppercase tracking-widest text-zinc-500 mb-1">Social</span>
-                            <a href="https://www.instagram.com/casto_roro/#" target="_blank" rel="noopener noreferrer" className="text-xl font-bold text-white group-hover:text-pink-400 transition-colors flex items-center gap-2">
-                                @casto_roro <ArrowUpRight className="w-4 h-4 opacity-50" />
-                            </a>
+                            <span className="block text-xs uppercase tracking-widest text-zinc-500 mb-2">Social & Web</span>
+                            <div className="flex flex-col gap-1">
+                                <a href="https://www.instagram.com/casto_roro/#" target="_blank" rel="noopener noreferrer" className="text-lg font-bold text-white group-hover:text-pink-400 transition-colors flex items-center gap-2">
+                                    @casto_roro <ArrowUpRight className="w-4 h-4 opacity-50" />
+                                </a>
+                            </div>
                         </div>
                     </motion.div>
 
